@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuizMaster Pro</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="particles" id="particles"></div>
+    
+    <div class="container">
+        <div class="header">
+            <div class="logo">QuizMaster Pro</div>
+            <div class="subtitle">Test Your Knowledge & Challenge Your Mind</div>
+        </div>
+
+        <!-- Auth Screen -->
+        <div class="game-screen active" id="authScreen">
+            <div class="auth-screen">
+                <div id="authMessage"></div>
+                
+                <!-- Login Form -->
+                <div class="auth-form" id="loginForm">
+                    <h2 style="margin-bottom: 25px; font-size: 1.8rem; color: #9370db;">Welcome Back!</h2>
+                    <div class="form-group">
+                        <label class="form-label" for="loginUsername">Username</label>
+                        <input type="text" class="form-input" id="loginUsername" placeholder="Enter your username" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="loginPassword">Password</label>
+                        <input type="password" class="form-input" id="loginPassword" placeholder="Enter your password" required>
+                    </div>
+                    <button class="auth-btn" onclick="login()">Login</button>
+                    <div class="auth-toggle">
+                        Don't have an account? <span class="auth-link" onclick="showSignup()">Sign up here</span>
+                    </div>
+                </div>
+
+                <!-- Signup Form -->
+                <div class="auth-form" id="signupForm" style="display: none;">
+                    <h2 style="margin-bottom: 25px; font-size: 1.8rem; color: #ff6b6b;">Join QuizMaster Pro!</h2>
+                    <div class="form-group">
+                        <label class="form-label" for="signupUsername">Username</label>
+                        <input type="text" class="form-input" id="signupUsername" placeholder="Choose a username" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="signupEmail">Email</label>
+                        <input type="email" class="form-input" id="signupEmail" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="signupPassword">Password</label>
+                        <input type="password" class="form-input" id="signupPassword" placeholder="Create a password" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="confirmPassword">Confirm Password</label>
+                        <input type="password" class="form-input" id="confirmPassword" placeholder="Confirm your password" required>
+                    </div>
+                    <button class="auth-btn" onclick="signup()">Create Account</button>
+                    <div class="auth-toggle">
+                        Already have an account? <span class="auth-link" onclick="showLogin()">Login here</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Start Screen -->
+        <div class="game-screen" id="startScreen">
+            <div class="user-info" id="userInfo">
+                <div class="user-welcome" id="welcomeMessage"></div>
+                <button class="logout-btn" onclick="logout()">Logout</button>
+            </div>
+            <div class="start-screen">
+                <p style="font-size: 1.2rem; margin-bottom: 30px; opacity: 0.9;">
+                    Ready to challenge yourself with 10 exciting questions?<br>
+                    Let's see how much you really know!
+                </p>
+                <button class="start-btn" onclick="startQuiz()">Start Quiz</button>
+            </div>
+        </div>
+
+        <!-- Quiz Screen -->
+        <div class="game-screen" id="quizScreen">
+            <div class="quiz-info">
+                <div class="info-item">
+                    <div class="info-label">Question</div>
+                    <div class="info-value" id="questionNumber">1/10</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Score</div>
+                    <div class="info-value" id="currentScore">0</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Time</div>
+                    <div class="info-value" id="timer">30</div>
+                </div>
+            </div>
+
+            <div class="progress-bar">
+                <div class="progress" id="progressBar"></div>
+            </div>
+
+            <div class="question-container">
+                <div class="question" id="questionText"></div>
+                <div class="options" id="optionsContainer"></div>
+                <button class="next-btn" id="nextBtn" onclick="nextQuestion()">Next Question</button>
+            </div>
+        </div>
+
+        <!-- Result Screen -->
+        <div class="game-screen" id="resultScreen">
+            <div class="result-screen">
+                <div class="score-circle">
+                    <div class="score-inner">
+                        <div class="score-text" id="finalScore"></div>
+                    </div>
+                </div>
+                <div class="result-message" id="resultMessage"></div>
+                <p id="resultDetails"></p>
+                <button class="play-again-btn" onclick="restartQuiz()">Play Again</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>
